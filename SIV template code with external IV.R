@@ -74,7 +74,7 @@ attach(mydata)
 ############Setting the regression variables. You need to input your variables here
 H0 <- data.frame(hours, lwage,educ, age,kidslt6, kidsge6, nwifeinc)  
 # Vector of variables used in the regression. Firts var is outcome, the second var is endogenous regressor
-IV <- data.frame(exper,expersq) ####IV variables
+IV <- data.frame(exper,expersq) ####IV variables need to be iserted here. If you do not have external IVs use the other version of the code.
 Y <- as.character(colnames(H0))[1] ###OUTCOME variable
 X <-as.character(colnames(H0))[2] ###ENDOEGENOUS variable
 H<- as.character(colnames(H0))[-(1:2)] ##### EXOGENOUS variables
