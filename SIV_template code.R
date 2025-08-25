@@ -6,7 +6,6 @@ library(lmtest)
 library(haven)
 library(zoo)
 library(sandwich)
-library(rMR)
 library(ivreg)
 ##Functions used
 # Two-sample Anderson-Darling statistic
@@ -226,11 +225,11 @@ if(k!=0){
       n=length(data$ev21)
       l1 <- summary(lm((ev21^2)~siv,data=data))
       l2 <-summary( lm((ev22^2)~siv,data=data))
-      ssr1 <- sumsq(predict(lm((ev21^2)~siv,data=data))-mean(data$ev21^2))
-      sse1=sumsq(data$ev21)
+      ssr1 <- sum((predict(lm((ev21^2)~siv,data=data))-mean(data$ev21^2))^2)
+      sse1=sum(data$ev21^2)
       x1= (ssr1/2)/(sse1/n^2)^2
-      ssr2 <- sumsq(predict(lm((ev22^2)~siv,data=data))-mean(data$ev22^2))
-      sse2=sumsq(data$ev22)
+      ssr2 <- sum((predict(lm((ev22^2)~siv,data=data))-mean(data$ev22^2))^2)
+      sse2=sum(data$ev22^2)
       x2= (ssr2/2)/(sse2/n^2)^2
       dv[i] <-pchisq(x2, df =1,lower.tail=FALSE)-pchisq(x1, df =1,lower.tail=FALSE)#
       x3 <- x1/x2#sumsq(predict(lm((ev22^2)~siv,data=data))/predict(lm((ev21^2)~siv,data=data))/predict(lm((ev21^2)~siv,data=data)))
