@@ -11,5 +11,5 @@ library(wooldridge)
 mydata<-wooldridge::mroz
 
 ############Setting the regression variables. You need to input your variables here
-H0 <- data.frame(hours, lwage,educ, age,kidslt6, kidsge6, nwifeinc)  <- instead of these variables you lsit your own variables.
+H0 <- data.frame(hours, lwage,educ, age,kidslt6, kidsge6, nwifeinc)  <- instead of these variables you list your own variables.
 Vector of variables used in the regression. First var is outcome, the second var is endogenous regressor, the rest is the list of exogenous vars.
